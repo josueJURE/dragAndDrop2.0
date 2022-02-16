@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+
+}
+
+.empty {
+  border: 1px black solid;
+  height: 300px;
+  width: 300px;
+  margin: 10px;
+  flex-direction: row;
+}
+
+.fill {
+  border: 1px black solid;
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+}
+
+.drag {
+  background-color: green;
+}
+
+.dragImage {
+  background-color: purple;
+}
