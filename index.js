@@ -14,8 +14,7 @@ image.addEventListener("dragend", function(e) {
 
 
 
-for(var i = 0; i < empties.length; i++) {
-  var empty = empties[i];
+for(const empty of empties) {
   empty.addEventListener("dragover", function(e) {
     e.preventDefault();
     console.log("draggedover")
