@@ -1,17 +1,9 @@
 const empties = document.querySelectorAll(".empty");
-const image = document.querySelector(".fill")
+const image = document.querySelector(".fill");
 
+image.addEventListener("dragstart", dragStart)
 
-
-image.addEventListener("dragstart", function(e) {
-  e.target.classList.add("dragImage");
-  console.log(e.target)
-})
-
-image.addEventListener("dragend", function(e) {
-  e.target.classList.remove("dragImage");
-})
-
+image.addEventListener("dragend", dragEnd)
 
 
 for(const empty of empties) {
@@ -31,4 +23,12 @@ for(const empty of empties) {
     empty.append(image)
 
   })
+}
+
+function dragStart() {
+  this.classList.add("dragImage");
+}
+
+function dragEnd() {
+  this.classList.remove("dragImage");
 }
