@@ -1,34 +1,36 @@
 const empties = document.querySelectorAll(".empty");
 const image = document.querySelector(".fill");
 
-image.addEventListener("dragstart", dragStart)
+//event listener on draggable elements
+image.addEventListener("dragstart", dragStart);
+image.addEventListener("dragend", dragEnd);
 
-image.addEventListener("dragend", dragEnd)
-
-
+// event listener on droppable elements
 for(const empty of empties) {
-  empty.addEventListener("dragover", function(e) {
-    e.preventDefault();
-    console.log("draggedover")
-  })
-  empty.addEventListener("dragenter", function(e) {
-    e.preventDefault();
-    empty.classList.add("pink")
-    console.log("entered")
-  })
-  empty.addEventListener("dragleave", function() {
-    empty.classList.remove("pink")
-  })
-  empty.addEventListener("drop", function(e) {
-    empty.append(image)
-
-  })
+  empty.addEventListener("dragover", dragOver);
+  empty.addEventListener("dragenter", dragEnter);
+  empty.addEventListener("dragleave",dragLeave);
+  empty.addEventListener("drop",dragDrop);
 }
 
+// functions
 function dragStart() {
   this.classList.add("dragImage");
 }
-
 function dragEnd() {
   this.classList.remove("dragImage");
+}
+function dragOver(e) {
+  e.preventDefault()
+}
+function dragEnter(e) {
+  e.preventDefault()
+  this.classList.add("pink");
+}
+function dragLeave() {
+  this.classList.remove("pink")
+}
+function dragDrop(e) {
+  e.preventDefault();
+  this.append(image)
 }
